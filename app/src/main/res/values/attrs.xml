@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CurveView">
+        <attr name="paint_color" format="integer|reference" />
+        <attr name="paint_width" format="integer|float|reference" />
+        <attr name="curvature" format="integer|float|reference" />
+    </declare-styleable>
+
+</resources>
