@@ -3,5 +3,8 @@
 
 > [参考文献](http://www.antigrain.com/research/bezier_interpolation/index.html#PAGE_BEZIER_INTERPOLATION)
 
+---------------
+
+# Demo效果
 ![Demo效果](https://github.com/Yuloran/CurveView/blob/master/gif/screenrecord.gif)
 
