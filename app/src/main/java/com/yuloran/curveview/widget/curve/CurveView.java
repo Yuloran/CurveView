@@ -1,4 +1,4 @@
-package com.yuloran.curveview.widget;
+package com.yuloran.curveview.widget.curve;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -6,16 +6,13 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.Point;
 import android.graphics.PointF;
 import android.util.AttributeSet;
 import android.view.View;
 
 import com.orhanobut.logger.Logger;
 import com.yuloran.curveview.R;
-import com.yuloran.curveview.contract.presenter.curve.BezierAlgorithm;
-import com.yuloran.curveview.contract.presenter.curve.CurveStyle;
-import com.yuloran.curveview.model.bean.HourTemperature;
+import com.yuloran.curveview.model.bean.HourWeather;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,7 +30,7 @@ public class CurveView extends View {
 
     private int mHeight;
 
-    private List<HourTemperature> mOriginalPoints = new ArrayList<>();
+    private List<HourWeather> mOriginalPoints = new ArrayList<>();
 
     private List<PointF> mMappedPoints = new ArrayList<>();
 
@@ -108,7 +105,7 @@ public class CurveView extends View {
         }
     }
 
-    public void drawDefaultStyle(List<HourTemperature> originalPoints) {
+    public void drawDefaultStyle(List<HourWeather> originalPoints) {
         if (mWidth == 0 || mHeight == 0) {
             return;
         }
@@ -146,7 +143,7 @@ public class CurveView extends View {
         invalidate();
     }
 
-    private void mapHourTemperature(List<HourTemperature> originalPoints) {
+    private void mapHourTemperature(List<HourWeather> originalPoints) {
         if (mWidth == 0 || mHeight == 0) {
             return;
         }
@@ -169,13 +166,13 @@ public class CurveView extends View {
         mMappedPoints.clear();
         int centerVertical = mHeight / 2;
         for (int i = 0; i < size; i++) {
-            HourTemperature hourTemperature = mOriginalPoints.get(i);
+            HourWeather hourWeather = mOriginalPoints.get(i);
             PointF point = new PointF();
             point.x = 50 + i * interval;
             if (unit == 0) {
                 point.y = centerVertical;
             } else {
-                point.y = (int) ((max - hourTemperature.getTemperature()) * unit) + 50;
+                point.y = (int) ((max - hourWeather.getTemperature()) * unit) + 50;
             }
             mMappedPoints.add(point);
         }

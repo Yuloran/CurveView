@@ -5,14 +5,14 @@ package com.yuloran.curveview.model.bean;
  * Function:
  */
 
-public class HourTemperature implements Comparable<HourTemperature> {
+public class HourWeather implements Comparable<HourWeather> {
     private int mTemperature;
     private int mHour;
 
-    public HourTemperature() {
+    public HourWeather() {
     }
 
-    public HourTemperature(int temperature, int hour) {
+    public HourWeather(int temperature, int hour) {
         this.mTemperature = temperature;
         this.mHour = hour;
     }
@@ -34,13 +34,13 @@ public class HourTemperature implements Comparable<HourTemperature> {
     }
 
     @Override
-    public int compareTo(HourTemperature o) {
+    public int compareTo(HourWeather o) {
         return mTemperature - o.getTemperature();
     }
 
     @Override
     public String toString() {
-        return "HourTemperature{" +
+        return "HourWeather{" +
                 "mTemperature=" + mTemperature +
                 ", mHour=" + mHour +
                 '}';

@@ -1,8 +1,8 @@
 package com.yuloran.curveview.model;
 
-import com.yuloran.curveview.contract.BaseModel;
-import com.yuloran.curveview.contract.presenter.curve.CurveDrawPresenter;
-import com.yuloran.curveview.model.bean.HourTemperature;
+import com.yuloran.curveview.base.IBaseModel;
+import com.yuloran.curveview.model.bean.HourWeather;
+import com.yuloran.curveview.ui.main.MainPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,26 +13,26 @@ import java.util.Random;
  * Function:
  */
 
-public class CurveModel implements BaseModel {
-    private CurveDrawPresenter mPresenter;
+public class CurveModel implements IBaseModel {
+    private MainPresenter mPresenter;
 
     private Random mRandom;
 
-    public CurveModel(CurveDrawPresenter presenter) {
+    public CurveModel(MainPresenter presenter) {
         this.mPresenter = presenter;
         mRandom = new Random();
     }
 
     @Override
     public void start() {
-        List<HourTemperature> hourTemperatures = new ArrayList<>();
+        List<HourWeather> hourWeathers = new ArrayList<>();
         for (int i = 0; i < 7; i++) {
-            HourTemperature p = new HourTemperature();
+            HourWeather p = new HourWeather();
             p.setTemperature(mRandom.nextInt(200) + 100);
             p.setHour(i);
-            hourTemperatures.add(p);
+            hourWeathers.add(p);
         }
-        mPresenter.onLoadSuccess(hourTemperatures);
+        mPresenter.onLoadSuccess(hourWeathers);
     }
 
     @Override

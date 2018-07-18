@@ -1,11 +1,11 @@
-package com.yuloran.curveview.contract;
+package com.yuloran.curveview.base;
 
 /**
  * Author & Date: Yuloran, 2017/9/10 19:48
  * Function:
  */
 
-public interface BasePresenter<T, E> {
+public interface IBasePresenter<T, E> {
     void start();
 
     void cancel();

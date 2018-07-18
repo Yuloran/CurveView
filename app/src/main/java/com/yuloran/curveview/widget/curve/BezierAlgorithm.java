@@ -1,7 +1,6 @@
-package com.yuloran.curveview.contract.presenter.curve;
+package com.yuloran.curveview.widget.curve;
 
 import android.graphics.Path;
-import android.graphics.Point;
 import android.graphics.PointF;
 
 import com.orhanobut.logger.Logger;

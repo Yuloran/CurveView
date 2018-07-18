@@ -1,7 +1,6 @@
 package com.yuloran.curveview;
 
 import android.app.Application;
-import android.util.Log;
 
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;

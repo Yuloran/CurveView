@@ -1,4 +1,4 @@
-package com.yuloran.curveview.contract.presenter.curve;
+package com.yuloran.curveview.widget.curve;
 
 import android.content.res.Resources;
 import android.graphics.Color;

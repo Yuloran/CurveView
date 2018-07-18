@@ -1,9 +1,8 @@
-package com.yuloran.curveview.contract.presenter.curve;
+package com.yuloran.curveview.ui.main;
 
 import com.orhanobut.logger.Logger;
-import com.yuloran.curveview.contract.IMainActivityContract;
 import com.yuloran.curveview.model.CurveModel;
-import com.yuloran.curveview.model.bean.HourTemperature;
+import com.yuloran.curveview.model.bean.HourWeather;
 
 import java.util.List;
 
@@ -12,15 +11,15 @@ import java.util.List;
  * Function: 曲线绘制实现类
  */
 
-public class CurveDrawPresenter implements IMainActivityContract.ICurveDrawPresenter {
+public class MainPresenter implements IMainContract.IPresenter {
 
-    private IMainActivityContract.ICurveView mView;
+    private IMainContract.IView mView;
 
     private CurveModel mModel;
 
     private boolean mIsStarted;
 
-    public CurveDrawPresenter(IMainActivityContract.ICurveView view) {
+    MainPresenter(IMainContract.IView view) {
         this.mView = view;
         mModel = new CurveModel(this);
     }
@@ -42,8 +41,8 @@ public class CurveDrawPresenter implements IMainActivityContract.ICurveDrawPrese
     }
 
     @Override
-    public void onLoadSuccess(List<HourTemperature> hourTemperatures) {
-        mView.show(hourTemperatures);
+    public void onLoadSuccess(List<HourWeather> hourWeathers) {
+        mView.show(hourWeathers);
     }
 
     @Override
