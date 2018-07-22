@@ -1,30 +1,31 @@
-package com.yuloran.curveview.ui.main;
+package com.yuloran.demo.ui.curveview;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.widget.SeekBar;
 
-import com.yuloran.curveview.R;
-import com.yuloran.curveview.model.bean.HourWeather;
-import com.yuloran.curveview.widget.curve.CurveView;
+import com.yuloran.demo.R;
+import com.yuloran.demo.model.bean.HourWeather;
+import com.yuloran.demo.widget.curve.CurveView;
 
 import java.util.List;
 
-public class MainActivity extends Activity implements IMainContract.IView {
+public class CurveViewActivity extends Activity implements ICurveViewContract.IView {
 
     private CurveView mCurveView;
     private SeekBar mSeekBar;
 
-    private IMainContract.IPresenter mPresenter;
+    private ICurveViewContract.IPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_curve_view);
 
         initViews();
 
-        mPresenter = new MainPresenter(this);
+        mPresenter = new CurveViewPresenter(this);
     }
 
     private void initViews() {
@@ -60,7 +61,7 @@ public class MainActivity extends Activity implements IMainContract.IView {
     }
 
     @Override
-    public void show(final List<HourWeather> hourWeathers) {
+    public void show(@NonNull final List<HourWeather> hourWeathers) {
         getWindow().getDecorView().post(new Runnable() {
             @Override
             public void run() {

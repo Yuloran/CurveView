@@ -1,4 +1,4 @@
-package com.yuloran.curveview.widget.curve;
+package com.yuloran.demo.widget.curve;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,9 +10,9 @@ import android.graphics.PointF;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.orhanobut.logger.Logger;
-import com.yuloran.curveview.R;
-import com.yuloran.curveview.model.bean.HourWeather;
+import com.yuloran.demo.R;
+import com.yuloran.demo.model.bean.HourWeather;
+import com.yuloran.demo.util.Logger;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,6 +24,8 @@ import java.util.List;
  */
 
 public class CurveView extends View {
+    private static final String TAG = CurveView.class.getSimpleName();
+
     private CurveStyle mStyle;
 
     private int mWidth;
@@ -57,9 +59,8 @@ public class CurveView extends View {
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CurveView);
         mStyle = builder.setPaintColor(a.getInt(R.styleable.CurveView_paint_color, -1))
-                .setPaintWidth(a.getFloat(R.styleable.CurveView_paint_width, -1))
-                .setCurvature(a.getFloat(R.styleable.CurveView_curvature, -1))
-                .create();
+                        .setPaintWidth(a.getFloat(R.styleable.CurveView_paint_width, -1))
+                        .setCurvature(a.getFloat(R.styleable.CurveView_curvature, -1)).create();
 
         a.recycle();
 
@@ -161,7 +162,7 @@ public class CurveView extends View {
         int max = originalPoints.get(size - 1).getTemperature();
         float unit = (max - min) / (float) (mHeight - 100);
         int interval = (mWidth - 100) / (size - 1);
-        Logger.d("min:%d, max:%d, unit:%f, interval:%d.", min, max, unit, interval);
+        Logger.d(TAG, "min:%d, max:%d, unit:%f, interval:%d.", min, max, unit, interval);
 
         mMappedPoints.clear();
         int centerVertical = mHeight / 2;
@@ -176,8 +177,8 @@ public class CurveView extends View {
             }
             mMappedPoints.add(point);
         }
-        Logger.d("mOriginalPoints:\n" + mOriginalPoints);
-        Logger.d("mMappedPoints:\n" + mMappedPoints);
+        Logger.d(TAG, "mOriginalPoints:\n" + mOriginalPoints);
+        Logger.d(TAG, "mMappedPoints:\n" + mMappedPoints);
     }
 
 }

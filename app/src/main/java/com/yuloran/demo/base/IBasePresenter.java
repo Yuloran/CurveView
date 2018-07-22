@@ -1,4 +1,6 @@
-package com.yuloran.curveview.base;
+package com.yuloran.demo.base;
+
+import android.support.annotation.NonNull;
 
 /**
  * Author & Date: Yuloran, 2017/9/10 19:48
@@ -12,7 +14,7 @@ public interface IBasePresenter<T, E> {
 
     boolean isStarted();
 
-    void onLoadSuccess(T t);
+    void onLoadSuccess(@NonNull T t);
 
     void onLoadFailed(E e);
 }

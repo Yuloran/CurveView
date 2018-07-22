@@ -1,8 +1,10 @@
-package com.yuloran.curveview.ui.main;
+package com.yuloran.demo.ui.curveview;
 
-import com.orhanobut.logger.Logger;
-import com.yuloran.curveview.model.CurveModel;
-import com.yuloran.curveview.model.bean.HourWeather;
+import android.support.annotation.NonNull;
+
+import com.yuloran.demo.model.CurveModel;
+import com.yuloran.demo.model.bean.HourWeather;
+import com.yuloran.demo.util.Logger;
 
 import java.util.List;
 
@@ -11,15 +13,16 @@ import java.util.List;
  * Function: 曲线绘制实现类
  */
 
-public class MainPresenter implements IMainContract.IPresenter {
+public class CurveViewPresenter implements ICurveViewContract.IPresenter {
+    private static final String TAG = CurveViewPresenter.class.getSimpleName();
 
-    private IMainContract.IView mView;
+    private ICurveViewContract.IView mView;
 
     private CurveModel mModel;
 
     private boolean mIsStarted;
 
-    MainPresenter(IMainContract.IView view) {
+    CurveViewPresenter(ICurveViewContract.IView view) {
         this.mView = view;
         mModel = new CurveModel(this);
     }
@@ -41,13 +44,13 @@ public class MainPresenter implements IMainContract.IPresenter {
     }
 
     @Override
-    public void onLoadSuccess(List<HourWeather> hourWeathers) {
+    public void onLoadSuccess(@NonNull List<HourWeather> hourWeathers) {
         mView.show(hourWeathers);
     }
 
     @Override
     public void onLoadFailed(String s) {
-        Logger.d(s);
+        Logger.d(TAG, s);
     }
 
 }

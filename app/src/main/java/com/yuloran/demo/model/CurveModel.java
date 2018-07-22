@@ -1,8 +1,8 @@
-package com.yuloran.curveview.model;
+package com.yuloran.demo.model;
 
-import com.yuloran.curveview.base.IBaseModel;
-import com.yuloran.curveview.model.bean.HourWeather;
-import com.yuloran.curveview.ui.main.MainPresenter;
+import com.yuloran.demo.base.IBaseModel;
+import com.yuloran.demo.model.bean.HourWeather;
+import com.yuloran.demo.ui.curveview.CurveViewPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +14,11 @@ import java.util.Random;
  */
 
 public class CurveModel implements IBaseModel {
-    private MainPresenter mPresenter;
+    private CurveViewPresenter mPresenter;
 
     private Random mRandom;
 
-    public CurveModel(MainPresenter presenter) {
+    public CurveModel(CurveViewPresenter presenter) {
         this.mPresenter = presenter;
         mRandom = new Random();
     }

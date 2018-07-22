@@ -1,4 +1,4 @@
-package com.yuloran.curveview.model.bean;
+package com.yuloran.demo.model.bean;
 
 /**
  * Author & Date: Yuloran, 2017/9/10 13:57
@@ -40,9 +40,6 @@ public class HourWeather implements Comparable<HourWeather> {
 
     @Override
     public String toString() {
-        return "HourWeather{" +
-                "mTemperature=" + mTemperature +
-                ", mHour=" + mHour +
-                '}';
+        return "HourWeather{" + "mTemperature=" + mTemperature + ", mHour=" + mHour + '}';
     }
 }

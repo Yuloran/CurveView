@@ -1,8 +1,8 @@
-package com.yuloran.curveview.ui.main;
+package com.yuloran.demo.ui.curveview;
 
-import com.yuloran.curveview.base.IBasePresenter;
-import com.yuloran.curveview.base.IBaseView;
-import com.yuloran.curveview.model.bean.HourWeather;
+import com.yuloran.demo.base.IBasePresenter;
+import com.yuloran.demo.base.IBaseView;
+import com.yuloran.demo.model.bean.HourWeather;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
  * Function:
  */
 
-public interface IMainContract {
+public interface ICurveViewContract {
     interface IView extends IBaseView<List<HourWeather>> {
     }
 

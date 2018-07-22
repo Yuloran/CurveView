@@ -1,9 +1,9 @@
-package com.yuloran.curveview.widget.curve;
+package com.yuloran.demo.widget.curve;
 
 import android.graphics.Path;
 import android.graphics.PointF;
 
-import com.orhanobut.logger.Logger;
+import com.yuloran.demo.util.Logger;
 
 import java.util.List;
 
@@ -12,14 +12,18 @@ import java.util.List;
  * Function:
  */
 
-public class BezierAlgorithm {
+public final class BezierAlgorithm {
+    private static final String TAG = BezierAlgorithm.class.getSimpleName();
+
+    private BezierAlgorithm() {
+    }
 
     public static void calculate(List<PointF> mappedPoints, float sharpenRatio, Path path) {
         if (mappedPoints.size() < 3) {
             throw new IllegalArgumentException("The size of mappedPoints must not less than 3!");
         }
 
-        Logger.d("sharpenRatio: " + sharpenRatio);
+        Logger.d(TAG, "sharpenRatio: " + sharpenRatio);
 
         PointF pMidOfLm = new PointF();
         PointF pMidOfMr = new PointF();
@@ -43,7 +47,7 @@ public class BezierAlgorithm {
             float ratio = (lengthOfLm / (lengthOfLm + lengthOfMr)) * sharpenRatio;
             float oneMinusRatio = (1 - ratio) * sharpenRatio;
 
-            Logger.d("ratio:%f, oneMinusRatio:%f.", ratio, oneMinusRatio);
+            Logger.d(TAG, "ratio:%f, oneMinusRatio:%f.", ratio, oneMinusRatio);
 
             float dx = pMidOfLm.x - pMidOfMr.x;
             float dy = pMidOfLm.y - pMidOfMr.y;
@@ -90,7 +94,7 @@ public class BezierAlgorithm {
                 path.cubicTo(cRight.x, cRight.y, last.x, last.y, pR.x, pR.y);
             }
 
-            Logger.d("cLeft:%s, cRight:%s.", cLeft, cRight);
+            Logger.d(TAG, "cLeft:%s, cRight:%s.", cLeft, cRight);
         }
     }
 }

@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">CurveView</string>
+    <string name="app_name">Functions</string>
+
+    <string name="function1">RxJava2</string>
+    <string name="function2">CurveView</string>
+
+    <string-array name="functions">
+        <item>@string/function1</item>
+        <item>@string/function2</item>
+    </string-array>
+
+
+    <string name="input_hint">please enter keyword…</string>
 </resources>

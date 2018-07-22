@@ -1,4 +1,4 @@
-package com.yuloran.curveview.widget.curve;
+package com.yuloran.demo.widget.curve;
 
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -20,8 +20,8 @@ public class CurveStyle {
     private float mCurvature;
 
     {
-        mPaintWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1.5f, Resources.getSystem()
-                .getDisplayMetrics());
+        mPaintWidth = TypedValue
+                .applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1.5f, Resources.getSystem().getDisplayMetrics());
         mCurvature = 1.0f;
     }
 
@@ -71,8 +71,8 @@ public class CurveStyle {
          * @return Builder
          */
         public Builder setPaintWidth(float width) {
-            mPaintWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, width, Resources.getSystem()
-                    .getDisplayMetrics());
+            mPaintWidth = TypedValue
+                    .applyDimension(TypedValue.COMPLEX_UNIT_DIP, width, Resources.getSystem().getDisplayMetrics());
             return this;
         }
 
